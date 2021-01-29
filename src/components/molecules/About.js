@@ -13,17 +13,19 @@ const useStyle = makeStyles((theme) => ({
   },
   gridContainer: {
     flexDirection: "column-reverse",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       flexDirection: "initial",
       alignItems: "center",
     },
   },
   imgAbout: {
-    width: "80%",
+    // width: "80%",
+    padding: '0 24px',
     margin: "20px auto",
     borderRadius: 10,
     display: "block",
     [theme.breakpoints.up("md")]: {
+      padding: 0,
       width: "60%",
       boxShadow: "0 0 10px rgb(0 0 0 / 10%)",
     },
@@ -46,17 +48,17 @@ const About = () => {
   return (
     <div className={classes.root}>
       <Grid container className={classes.gridContainer}>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} md={6}>
           <img src={aboutImg} alt="basket net" className={classes.imgAbout} />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} md={6}>
           <div className={classes.titleContainer}>
-            <Typography className={classes.title} variant="h4" component="h2">
+            <Typography className={classes.title} variant="h3" component="h2">
               About Us
             </Typography>
             <Typography
               className={classes.subtitle}
-              variant="body2"
+              variant="subtitle1"
               component="p"
             >
               Contrary to popular belief, Lorem Ipsum is not simply random text.
@@ -74,7 +76,6 @@ const About = () => {
             </Typography>
           </div>
         </Grid>
-        <br />
         {/* <span>Photo by <a href="https://unsplash.com/@montylov?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">MontyLov</a> on <a href="https://unsplash.com/s/photos/basketball?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span> */}
       </Grid>
     </div>

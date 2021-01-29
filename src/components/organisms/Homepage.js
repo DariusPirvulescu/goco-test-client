@@ -5,6 +5,7 @@ import { usePostFetch } from "customHooks/usePostFetch";
 
 import Header from "components/molecules/Header";
 import About from "components/molecules/About";
+import Pricing from "components/molecules/Pricing";
 
 const Homepage = () => {
   const { providedUser } = useContext(UserContext);
@@ -18,14 +19,16 @@ const Homepage = () => {
   };
 
   return (
-    <>
+    <div>
       <Header />
       <About />
-
+      <Pricing />
+      
       {providedUser.user && providedUser.user.email ? (
         <button onClick={handleSignOut}>Sign Out</button>
       ) : null}
-    </>
+    </div>
+      
   );
 };
 

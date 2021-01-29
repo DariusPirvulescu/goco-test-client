@@ -50,10 +50,12 @@ const useStyle = makeStyles((theme) => ({
   },
   cta: {
     marginTop: 30,
-    width: 150,
-    height: 50,
+    width: 100,
+    height: 45,
     [theme.breakpoints.up("md")]: {
       marginTop: 70,
+      width: 150,
+      height: 50,
     },
   },
 }));
@@ -70,8 +72,9 @@ const Header = () => {
             </Typography>
             <Typography
               className={classes.subtitle}
-              variant="body2"
+              variant="subtitle1"
               component="h3"
+              color="textSecondary"
             >
               Get tracking your progress with the this amazing SaaS platform
             </Typography>
