@@ -10,11 +10,16 @@ import ActionButton from "components/atoms/ActionButton";
 const useStyle = makeStyles((theme) => ({
   root: {
     width: "100vw",
+    paddingBottom: 50,
   },
   gridContainer: {
     flexDirection: "column-reverse",
     [theme.breakpoints.up("sm")]: {
+      height: "70vh",
       flexDirection: "row",
+    },
+    [theme.breakpoints.up("md")]: {
+      height: "80vh",
     },
   },
   vector: {
@@ -22,35 +27,35 @@ const useStyle = makeStyles((theme) => ({
     margin: "auto",
     display: "block",
     [theme.breakpoints.up("sm")]: {
-      width: "65%"
+      width: "65%",
+      marginTop: 30,
     },
   },
   titleContainer: {
     marginTop: 30,
-    padding: '0 24px',
+    padding: "0 24px",
+    textAlign: "center",
     [theme.breakpoints.up("sm")]: {
-      marginTop: '15%'
+      marginTop: "15%",
+      textAlign: "left",
     },
     [theme.breakpoints.up("md")]: {
       marginTop: "25%",
       paddingRight: 144,
-    }
-  },
-  centerMobile: {
-    textAlign: 'center',
-    [theme.breakpoints.up("sm")]: {
-      textAlign: 'left'
     },
   },
   subtitle: {
     fontWeight: 200,
-    marginTop: 10
+    marginTop: 10,
   },
   cta: {
-    marginTop: 50,
+    marginTop: 30,
     width: 150,
-    height: 50
-  }
+    height: 50,
+    [theme.breakpoints.up("md")]: {
+      marginTop: 70,
+    },
+  },
 }));
 
 const Header = () => {
@@ -59,15 +64,19 @@ const Header = () => {
     <div className={classes.root}>
       <Grid container className={classes.gridContainer}>
         <Grid item xs={12} sm={6}>
-        <div className={classes.titleContainer}>
-          <Typography className={`${classes.title} ${classes.centerMobile}`} variant="h4" component="h1" >
-            Become the best that there ever was in this entire world
-          </Typography>
-          <Typography className={`${classes.subtitle} ${classes.centerMobile}`} variant="body2" component="h3" >
-            Get tracking your progress with the this amazing SaaS platform
-          </Typography>
-          <ActionButton style={classes.cta} />
-        </div>
+          <div className={classes.titleContainer}>
+            <Typography className={classes.title} variant="h4" component="h1">
+              Become the best that there ever was in this entire world
+            </Typography>
+            <Typography
+              className={classes.subtitle}
+              variant="body2"
+              component="h3"
+            >
+              Get tracking your progress with the this amazing SaaS platform
+            </Typography>
+            <ActionButton style={classes.cta} />
+          </div>
         </Grid>
         <Grid item xs={12} sm={6}>
           <img
