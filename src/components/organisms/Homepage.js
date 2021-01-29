@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { UserContext } from "contexts/userContext";
 import { usePostFetch } from "customHooks/usePostFetch"
 
+import Header from "components/molecules/Header";
 
 const Homepage = () => {
   const { providedUser } = useContext(UserContext);
@@ -18,7 +19,9 @@ const Homepage = () => {
 
   return (
     <> 
-      <h1>Homepage</h1>
+      
+      <Header /> 
+
       {providedUser.user && providedUser.user.email ? 
         <button onClick={handleSignOut}>Sign Out</button> 
       :

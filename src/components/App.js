@@ -36,7 +36,7 @@ const App = () => {
 
   return (
     <Router>
-      <p>use: {user && user.email }</p>
+      {/* <p>use: {user && user.email }</p> */}
       <UserContext.Provider value={{providedUser}}>
         <Navbar /> 
         <Switch>
