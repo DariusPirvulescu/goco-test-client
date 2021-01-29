@@ -5,11 +5,11 @@ import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // context
 import { UserContext } from "contexts/userContext";
 
-import Navbar from "components/Navbar";
-import Homepage from "components/Homepage";
-import Login from "components/Login";
-import Register from "components/Register";
-import ResetPass from "components/ResetPass";
+import Navbar from "components/molecules/Navbar";
+import Homepage from "components/organisms/Homepage";
+import Login from "components/organisms/Login";
+import Register from "components/organisms/Register";
+import ResetPass from "components/organisms/ResetPass";
 
 const App = () => {
   const [user, setUser] = useState({});
