@@ -19,7 +19,7 @@ const Homepage = () => {
   return (
     <> 
       <h1>Homepage</h1>
-      {providedUser.user.email ? 
+      {providedUser.user && providedUser.user.email ? 
         <button onClick={handleSignOut}>Sign Out</button> 
       :
         null
