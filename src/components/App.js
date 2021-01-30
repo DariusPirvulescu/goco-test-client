@@ -8,6 +8,7 @@ import Homepage from 'components/organisms/Homepage';
 import ResetPass from 'components/organisms/ResetPass';
 import Footer from 'components/molecules/Footer';
 import Authenticate from 'components/organisms/Authenticate'
+import Dashboard from "components/organisms/Dashboard";
 
 // context
 import { UserContext } from 'contexts/userContext';
@@ -42,6 +43,7 @@ const App = () => {
             <Route exact path="/" component={Homepage} />
             <Route path="/login" render={() => <Authenticate action='login' />} />
             <Route path="/register" render={() => <Authenticate action='register' />} />
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="/reset" component={ResetPass} />
           </Switch>
         </div>
