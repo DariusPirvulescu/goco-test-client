@@ -10,6 +10,13 @@ import { footers } from 'assets/data/footerInfo';
 import logo from 'assets/images/logo.png';
 
 const useStyle = makeStyles((theme) => ({
+  '@global': {
+    ul: {
+      margin: 0,
+      padding: 0,
+      listStyle: 'none',
+    },
+  },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
