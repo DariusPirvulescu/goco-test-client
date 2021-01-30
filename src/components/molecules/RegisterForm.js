@@ -8,6 +8,7 @@ import {
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import Alert from '@material-ui/lab/Alert'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Link } from 'react-router-dom';
 
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     margin: theme.spacing(2, 2),
     [theme.breakpoints.up('sm')]: {
-      margin: theme.spacing(5),
+      margin: theme.spacing(2, 5),
     }
   },
   avatar: {
@@ -125,12 +126,16 @@ const RegisterForm = () => {
             id="password-confirm"
             autoComplete="current-password"
           />
-          {/* <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          /> */}
-          <h3>{res.error}</h3>
-          <h3>{error}</h3>
+          {res.error && 
+            <Alert severity="error">
+              {res.error.message}
+            </Alert>
+          }
+          {error && 
+            <Alert severity="info">
+              {error}
+            </Alert>
+          }
           {res.loading ? (
             <LoadSpinner alignCenter />
           ) : (

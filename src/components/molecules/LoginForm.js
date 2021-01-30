@@ -2,11 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Avatar, Typography, Button, Grid } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import LoadSpinner from 'components/atoms/LoadSpinner';
 import { Link } from 'react-router-dom';
 
 import TextInput from 'components/atoms/TextInput';
+import LoadSpinner from 'components/atoms/LoadSpinner';
 
 import { UserContext } from 'contexts/userContext';
 import { usePostFetch } from 'customHooks/usePostFetch';
@@ -19,19 +20,19 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(5, 2),
     [theme.breakpoints.up('sm')]: {
       margin: theme.spacing(5),
-    }
+    },
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: '100%',
-    marginTop: theme.spacing(1)
+    marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
-  }
+    margin: theme.spacing(3, 0, 2),
+  },
 }));
 
 const LoginForm = () => {
@@ -91,10 +92,10 @@ const LoginForm = () => {
           name="password"
           type="password"
         />
+        {res.error && <Alert severity="error">{res.error && res.error}</Alert>}
 
-        <h3>{res.error && res.error.message}</h3>
         {res.loading ? (
-          <LoadSpinner alignCenter/>
+          <LoadSpinner alignCenter />
         ) : (
           <Button
             type="submit"
@@ -111,10 +112,7 @@ const LoginForm = () => {
             <Link to="/reset">Forgot password ?</Link>
           </Grid>
           <Grid item>
-          <span>
-            {'Don\'t have an account?'}
-          </span>
-          {' '}
+            <span>{'Don\'t have an account?'}</span>{' '}
             <Link to="/register">{'Sign Up'}</Link>
           </Grid>
         </Grid>
