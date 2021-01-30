@@ -56,7 +56,7 @@ const Pricing = () => {
             item
             key={group.title}
             xs={12}
-            sm={group.title === "Enterprise" ? 12 : 6}
+            sm={group.title === "Magic" ? 12 : 6}
             md={4}
           >
             <InfoCard

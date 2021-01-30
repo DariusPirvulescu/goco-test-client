@@ -67,13 +67,31 @@ const NavBar = () => {
   };
 
   const list = (
-    <div className={classes.list} role="presentation" onClick={closeDrawer}>
+    <div className={classes.list} onClick={closeDrawer}>
       <List>
-        {["About", "Pricing", "Contact"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem>
+          <Link to="/#about" style={{ textDecoration: "none", color: "#000" }}>
+            <ListItemText primary="About" />
+          </Link>
+        </ListItem>
+
+        <ListItem>
+          <Link
+            to="/#pricing"
+            style={{ textDecoration: "none", color: "#000" }}
+          >
+            <ListItemText primary="Pricing" />
+          </Link>
+        </ListItem>
+
+        <ListItem>
+          <Link
+            to="/#contact"
+            style={{ textDecoration: "none", color: "#000" }}
+          >
+            <ListItemText primary="Contacts" />
+          </Link>
+        </ListItem>
       </List>
       <Divider />
       <List>
