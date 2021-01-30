@@ -2,15 +2,15 @@ import React, { useState, useMemo, useEffect } from 'react';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-// context
-import { UserContext } from 'contexts/userContext';
 
 import Navbar from 'components/molecules/Navbar';
 import Homepage from 'components/organisms/Homepage';
-import Login from 'components/organisms/Login';
-import Register from 'components/organisms/Register';
 import ResetPass from 'components/organisms/ResetPass';
 import Footer from 'components/molecules/Footer';
+import Authenticate from 'components/organisms/Authenticate'
+
+// context
+import { UserContext } from 'contexts/userContext';
 
 const App = () => {
   const [user, setUser] = useState({});
@@ -40,8 +40,8 @@ const App = () => {
         <div style={{ minHeight: '80vh' }}>
           <Switch>
             <Route exact path="/" component={Homepage} />
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
+            <Route path="/login" render={() => <Authenticate action='login' />} />
+            <Route path="/register" render={() => <Authenticate action='register' />} />
             <Route path="/reset" component={ResetPass} />
           </Switch>
         </div>
