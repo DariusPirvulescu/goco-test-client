@@ -17,7 +17,7 @@ export const usePostFetch = () => {
 
       const url = baseUrl + endpoint
 
-      setResult(prevState => ({...prevState, loading: true}))
+      setResult({data: null, loading: true, error: null})
 
       fetch(url, requestOptions)
         .then(response => response.json())
