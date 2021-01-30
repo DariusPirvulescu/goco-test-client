@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 
 import InfoCard from "components/atoms/InfoCard";
 import CardBody from "components/atoms/CardBody";
+import ActionButton from "components/atoms/ActionButton";
 
 import { priceGroups } from "assets/data/priceGroups";
 
@@ -26,7 +27,7 @@ const Pricing = () => {
   const classes = useStyle();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="pricing">
       <Typography
         component="h2"
         variant="h3"

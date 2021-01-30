@@ -9,6 +9,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
+import { HashLink as Link } from "react-router-hash-link";
 
 import BurgerMenu from "components/atoms/BurgerMenu";
 import TemporaryDrawer from "components/atoms/TemporaryDrawer";
@@ -48,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
   navLinks: {
     display: "flex",
+    alignItems: "center",
     gap: "20px",
   },
 }));
@@ -97,24 +99,39 @@ const NavBar = () => {
     <div className={classes.grow}>
       <AppBar color="inherit" className={classes.appBar} position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h5" noWrap>
+          <Typography className={classes.title} variant="h4" noWrap>
             <TextLink to="/">Baller</TextLink>
           </Typography>
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <div className={classes.navLinks}>
-              <TextLink to="/">About</TextLink>
+              <Link
+                to="#about"
+                style={{ textDecoration: "none", color: "#000" }}
+              >
+                About
+              </Link>
 
-              <TextLink to="/">Pricing</TextLink>
+              <Link
+                to="/#pricing"
+                style={{ textDecoration: "none", color: "#000" }}
+              >
+                Pricing
+              </Link>
 
-              <TextLink to="/">Contacts</TextLink>
+              <Link
+                to="/#contact"
+                style={{ textDecoration: "none", color: "#000" }}
+              >
+                Contacts
+              </Link>
 
-              {/* <TextLink to="/register">
-                <Button variant="contained" color="primary">
+              <TextLink to="/register">
+                <Button variant="outlined" color="primary">
                   Sign Up
                 </Button>
-              </TextLink> */}
+              </TextLink>
             </div>
           </div>
           <div className={classes.sectionMobile}>

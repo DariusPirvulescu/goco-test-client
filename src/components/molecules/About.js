@@ -20,7 +20,7 @@ const useStyle = makeStyles((theme) => ({
   },
   imgAbout: {
     // width: "80%",
-    padding: '0 24px',
+    padding: "0 24px",
     margin: "20px auto",
     borderRadius: 10,
     display: "block",
@@ -46,7 +46,7 @@ const About = () => {
   const classes = useStyle();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="about">
       <Grid container className={classes.gridContainer}>
         <Grid item xs={12} md={6}>
           <img src={aboutImg} alt="basket net" className={classes.imgAbout} />
@@ -76,7 +76,6 @@ const About = () => {
             </Typography>
           </div>
         </Grid>
-        {/* <span>Photo by <a href="https://unsplash.com/@montylov?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">MontyLov</a> on <a href="https://unsplash.com/s/photos/basketball?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span> */}
       </Grid>
     </div>
   );

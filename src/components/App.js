@@ -10,6 +10,7 @@ import Homepage from "components/organisms/Homepage";
 import Login from "components/organisms/Login";
 import Register from "components/organisms/Register";
 import ResetPass from "components/organisms/ResetPass";
+import Footer from "components/molecules/Footer";
 
 const App = () => {
   const [user, setUser] = useState({});
@@ -45,6 +46,7 @@ const App = () => {
           <Route path='/register' component={Register} />
           <Route path='/reset' component={ResetPass} />
         </Switch>
+        <Footer />
       </UserContext.Provider>
     </Router>
   )
