@@ -107,7 +107,7 @@ const NavBar = () => {
           <div className={classes.sectionDesktop}>
             <div className={classes.navLinks}>
               <Link
-                to="#about"
+                to="/#about"
                 style={{ textDecoration: "none", color: "#000" }}
               >
                 About
