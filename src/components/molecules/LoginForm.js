@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 
+import { makeStyles } from '@material-ui/core/styles';
 import { Avatar, Typography, Button, Grid } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { makeStyles } from '@material-ui/core/styles';
+import LoadSpinner from 'components/atoms/LoadSpinner';
 import { Link } from 'react-router-dom';
 
 import TextInput from 'components/atoms/TextInput';
@@ -12,10 +13,13 @@ import { usePostFetch } from 'customHooks/usePostFetch';
 
 const useStyles = makeStyles((theme) => ({
   authCard: {
-    margin: theme.spacing(8, 4),
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    margin: theme.spacing(5, 2),
+    [theme.breakpoints.up('sm')]: {
+      margin: theme.spacing(5),
+    }
   },
   avatar: {
     margin: theme.spacing(1),
@@ -90,7 +94,7 @@ const LoginForm = () => {
 
         <h3>{res.error && res.error.message}</h3>
         {res.loading ? (
-          'LOADING...'
+          <LoadSpinner alignCenter/>
         ) : (
           <Button
             type="submit"
@@ -104,10 +108,14 @@ const LoginForm = () => {
         )}
         <Grid container>
           <Grid item xs>
-            <Link to="/reset">Forgot password?</Link>
+            <Link to="/reset">Forgot password ?</Link>
           </Grid>
           <Grid item>
-            <Link to="/register">{'Don\'t have an account? Sign Up'}</Link>
+          <span>
+            {'Don\'t have an account?'}
+          </span>
+          {' '}
+            <Link to="/register">{'Sign Up'}</Link>
           </Grid>
         </Grid>
       </form>

@@ -76,7 +76,7 @@ const Header = () => {
               component="h3"
               color="textSecondary"
             >
-              Get tracking your progress with the this amazing SaaS platform
+              Start tracking your progress with this amazing SaaS platform
             </Typography>
             <ActionButton style={classes.cta} />
           </div>
