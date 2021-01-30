@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import Divider from "@material-ui/core/Divider";
-import Button from "@material-ui/core/Button";
-import { HashLink as Link } from "react-router-hash-link";
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import Button from '@material-ui/core/Button';
+import { HashLink as Link } from 'react-router-hash-link';
 
-import BurgerMenu from "components/atoms/BurgerMenu";
-import TemporaryDrawer from "components/atoms/TemporaryDrawer";
-import TextLink from "components/atoms/TextLink";
+import BurgerMenu from 'components/atoms/BurgerMenu';
+import TemporaryDrawer from 'components/atoms/TemporaryDrawer';
+import TextLink from 'components/atoms/TextLink';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    boxShadow: "none",
+    boxShadow: 'none',
   },
   grow: {
     flexGrow: 1,
@@ -29,15 +29,15 @@ const useStyles = makeStyles((theme) => ({
   //   }
   // },
   sectionDesktop: {
-    display: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "flex",
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
     },
   },
   sectionMobile: {
-    display: "flex",
-    [theme.breakpoints.up("md")]: {
-      display: "none",
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
     },
   },
   list: {
@@ -45,12 +45,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 30,
   },
   fullList: {
-    width: "auto",
+    width: 'auto',
   },
   navLinks: {
-    display: "flex",
-    alignItems: "center",
-    gap: "20px",
+    display: 'flex',
+    alignItems: 'center',
+    gap: '20px',
   },
 }));
 
@@ -70,7 +70,7 @@ const NavBar = () => {
     <div className={classes.list} onClick={closeDrawer}>
       <List>
         <ListItem>
-          <Link to="/#about" style={{ textDecoration: "none", color: "#000" }}>
+          <Link to="/#about" style={{ textDecoration: 'none', color: '#000' }}>
             <ListItemText primary="About" />
           </Link>
         </ListItem>
@@ -78,7 +78,7 @@ const NavBar = () => {
         <ListItem>
           <Link
             to="/#pricing"
-            style={{ textDecoration: "none", color: "#000" }}
+            style={{ textDecoration: 'none', color: '#000' }}
           >
             <ListItemText primary="Pricing" />
           </Link>
@@ -87,7 +87,7 @@ const NavBar = () => {
         <ListItem>
           <Link
             to="/#contact"
-            style={{ textDecoration: "none", color: "#000" }}
+            style={{ textDecoration: 'none', color: '#000' }}
           >
             <ListItemText primary="Contacts" />
           </Link>
@@ -126,21 +126,21 @@ const NavBar = () => {
             <div className={classes.navLinks}>
               <Link
                 to="/#about"
-                style={{ textDecoration: "none", color: "#000" }}
+                style={{ textDecoration: 'none', color: '#000' }}
               >
                 About
               </Link>
 
               <Link
                 to="/#pricing"
-                style={{ textDecoration: "none", color: "#000" }}
+                style={{ textDecoration: 'none', color: '#000' }}
               >
                 Pricing
               </Link>
 
               <Link
                 to="/#contact"
-                style={{ textDecoration: "none", color: "#000" }}
+                style={{ textDecoration: 'none', color: '#000' }}
               >
                 Contacts
               </Link>

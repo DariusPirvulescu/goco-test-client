@@ -1,24 +1,22 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from 'react';
 
 import {
-  Avatar,
   Typography,
   Button,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
-import TextInput from "components/atoms/TextInput";
-import LoadSpinner from "components/atoms/LoadSpinner";
+import TextInput from 'components/atoms/TextInput';
+import LoadSpinner from 'components/atoms/LoadSpinner';
 
-import { usePostFetch } from "customHooks/usePostFetch";
-import { UserContext } from "contexts/userContext";
+import { usePostFetch } from 'customHooks/usePostFetch';
+import { UserContext } from 'contexts/userContext';
 
 const useStyles = makeStyles({
   authCard: {
-    width: "50%",
-    margin: "auto",
+    width: '50%',
+    margin: 'auto',
   },
 });
 
@@ -26,7 +24,7 @@ const ResetPasswordForm = () => {
   const { providedUser } = useContext(UserContext)
 
   const classes = useStyles();
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
 
   const [res, sendRequest] = usePostFetch();
 
@@ -35,12 +33,12 @@ const ResetPasswordForm = () => {
    
     const body = {email: email}
 
-    sendRequest("/reset-password", body)
+    sendRequest('/reset-password', body)
   };
 
   useEffect(() => {
     if (res.data) {
-      localStorage.setItem("user", JSON.stringify(res.data.snapshot));
+      localStorage.setItem('user', JSON.stringify(res.data.snapshot));
       providedUser.setUser(res.data.snapshot);
     }
   }, [res.data, providedUser]);

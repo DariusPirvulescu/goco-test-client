@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from 'react';
 
 import {
   Avatar,
@@ -7,31 +7,31 @@ import {
   FormControlLabel,
   Button,
   Checkbox,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { makeStyles } from "@material-ui/core/styles";
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { makeStyles } from '@material-ui/core/styles';
 
-import { UserContext } from "contexts/userContext";
-import { usePostFetch } from "customHooks/usePostFetch";
+import { UserContext } from 'contexts/userContext';
+import { usePostFetch } from 'customHooks/usePostFetch';
 
 const useStyles = makeStyles({
   authCard: {
-    width: "50%",
-    margin: "auto",
+    width: '50%',
+    margin: 'auto',
   },
 });
 
 const Register = () => {
   const classes = useStyles();
   const [inputValues, setInputValues] = useState({});
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const { providedUser } = useContext(UserContext);
   const [res, sendRequest] = usePostFetch();
 
   useEffect(() => {
     if (res.data) {
-      localStorage.setItem("user", JSON.stringify(res.data.snapshot));
+      localStorage.setItem('user', JSON.stringify(res.data.snapshot));
       providedUser.setUser(res.data.snapshot);
       setInputValues({});
     }
@@ -46,16 +46,16 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError("");
+    setError('');
 
     if (inputValues.password !== inputValues.passwordConfirm) {
-      setError("Passwords don't match");
+      setError('Passwords don\'t match');
       return;
     }
 
     const body = inputValues;
 
-    sendRequest("/register", body);
+    sendRequest('/register', body);
   };
 
   return (
@@ -70,7 +70,7 @@ const Register = () => {
         <form onSubmit={handleSubmit}>
           <TextField
             onChange={handleChange}
-            value={inputValues.name || ""}
+            value={inputValues.name || ''}
             variant="outlined"
             margin="normal"
             required
@@ -83,7 +83,7 @@ const Register = () => {
           />
           <TextField
             onChange={handleChange}
-            value={inputValues.email || ""}
+            value={inputValues.email || ''}
             variant="outlined"
             margin="normal"
             required
@@ -96,7 +96,7 @@ const Register = () => {
           />
           <TextField
             onChange={handleChange}
-            value={inputValues.password || ""}
+            value={inputValues.password || ''}
             variant="outlined"
             margin="normal"
             required
@@ -109,7 +109,7 @@ const Register = () => {
           />
           <TextField
             onChange={handleChange}
-            value={inputValues.passwordConfirm || ""}
+            value={inputValues.passwordConfirm || ''}
             variant="outlined"
             margin="normal"
             required
@@ -127,7 +127,7 @@ const Register = () => {
           <h3>{res.error}</h3>
           <h3>{error}</h3>
           {res.loading ? (
-            "LOADING..."
+            'LOADING...'
           ) : (
             <Button type="submit" fullWidth variant="contained" color="primary">
               Sign Up

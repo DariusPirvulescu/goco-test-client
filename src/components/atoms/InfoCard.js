@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardActions from "@material-ui/core/CardActions";
-import Button from "@material-ui/core/Button";
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
 
 const useStyle = makeStyles((theme) => ({
   cardHeader: {
     backgroundColor:
-      theme.palette.type === "light"
+      theme.palette.type === 'light'
         ? theme.palette.grey[200]
         : theme.palette.grey[700],
   },
@@ -28,8 +28,8 @@ const InfoCard = ({ children, header, subheader, buttonVariant, link }) => {
       <CardHeader
         title={header}
         subheader={subheader}
-        titleTypographyProps={{ align: "center" }}
-        subheaderTypographyProps={{ align: "center" }}
+        titleTypographyProps={{ align: 'center' }}
+        subheaderTypographyProps={{ align: 'center' }}
         className={classes.cardHeader}
       />
       {children}

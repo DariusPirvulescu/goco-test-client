@@ -12,9 +12,12 @@
     "sourceType": "module"
   },
   "rules": {
+    "quotes": [1, "single"],
     "no-console": "warn",
     "no-eval": "error",
     "import/first": "error",
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "comma-dangle": [2, "only-multiline"],
+    "import/default": 2
   }
 }

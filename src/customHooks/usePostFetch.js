@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback } from 'react';
 
 export const usePostFetch = () => {
   const [result, setResult] = useState({data: null, loading: false, error: null});
@@ -8,7 +8,7 @@ export const usePostFetch = () => {
 
     const sendRequest = useCallback((endpoint, body) => {
       const requestOptions = { 
-        method: "POST",
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -22,7 +22,7 @@ export const usePostFetch = () => {
       fetch(url, requestOptions)
         .then(response => response.json())
         .then(data => {
-          console.log("DATA", data)
+          console.log('DATA', data)
           if(data.type) {
             setResult({loading: false, data: data, error: null})
           } else {

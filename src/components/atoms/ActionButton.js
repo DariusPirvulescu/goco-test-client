@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Button from "@material-ui/core/Button";
+import Button from '@material-ui/core/Button';
 
-import TextLink from "./TextLink";
+import TextLink from './TextLink';
 
 const ActionButton = ({ style }) => {
   return (

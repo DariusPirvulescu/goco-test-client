@@ -1,24 +1,24 @@
-import React, { useState, useContext, useEffect } from "react";
+import React from 'react';
 
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
-import LoginForm from "components/molecules/LoginForm";
+import LoginForm from 'components/molecules/LoginForm';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "90vh",
+    height: '90vh',
   },
 
   image: {
-    backgroundImage: "url(https://source.unsplash.com/Ue5MJoavkIc)",
-    backgroundRepeat: "no-repeat",
+    backgroundImage: 'url(https://source.unsplash.com/Ue5MJoavkIc)',
+    backgroundRepeat: 'no-repeat',
     backgroundColor:
-      theme.palette.type === "light"
+      theme.palette.type === 'light'
         ? theme.palette.grey[50]
         : theme.palette.grey[900],
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
   },
 }));
 

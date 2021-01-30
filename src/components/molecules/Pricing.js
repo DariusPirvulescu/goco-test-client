@@ -1,21 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
-import InfoCard from "components/atoms/InfoCard";
-import CardBody from "components/atoms/CardBody";
-import ActionButton from "components/atoms/ActionButton";
+import InfoCard from 'components/atoms/InfoCard';
+import CardBody from 'components/atoms/CardBody';
 
-import { priceGroups } from "assets/data/priceGroups";
+import { priceGroups } from 'assets/data/priceGroups';
 
-const useStyle = makeStyles((theme) => ({
-  "@global": {
+const useStyle = makeStyles(() => ({
+  '@global': {
     ul: {
       margin: 0,
       padding: 0,
-      listStyle: "none",
+      listStyle: 'none',
     },
   },
   root: {
@@ -56,7 +55,7 @@ const Pricing = () => {
             item
             key={group.title}
             xs={12}
-            sm={group.title === "Magic" ? 12 : 6}
+            sm={group.title === 'Magic' ? 12 : 6}
             md={4}
           >
             <InfoCard
@@ -75,7 +74,7 @@ const Pricing = () => {
                   >
                     {line}
                   </Typography>
-                ))}{" "}
+                ))}{' '}
               </CardBody>
             </InfoCard>
           </Grid>

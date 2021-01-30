@@ -1,30 +1,30 @@
-import React from "react";
+import React from 'react';
 
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
-import TextLink from "components/atoms/TextLink";
+import TextLink from 'components/atoms/TextLink';
 
-import { footers } from "assets/data/footerInfo";
-import logo from "assets/images/logo.png";
+import { footers } from 'assets/data/footerInfo';
+import logo from 'assets/images/logo.png';
 
 const useStyle = makeStyles((theme) => ({
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
     padding: 24,
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       paddingTop: theme.spacing(6),
       paddingBottom: theme.spacing(6),
     },
   },
   logoContainer: {
-    textAlign: "center",
+    textAlign: 'center',
   },
   logo: {
     width: 35,
-    margin: "auto",
+    margin: 'auto',
   },
 }));
 
@@ -70,21 +70,21 @@ const Footer = () => {
 
         <Grid item xs={12}>
           <p>
-            Photo by{" "}
+            Photo by{' '}
             <a href="https://unsplash.com/@montylov?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
               MontyLov
-            </a>{" "}
-            on{" "}
+            </a>{' '}
+            on{' '}
             <a href="https://unsplash.com/s/photos/basketball?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
               Unsplash
             </a>
           </p>
           <p>
-            Illustration by <a href="undefined">Maria Shukshina</a> from{" "}
+            Illustration by <a href="undefined">Maria Shukshina</a> from{' '}
             <a href="https://icons8.com/">Icons8</a>
           </p>
           <p>
-            Illustration by <a href="undefined">Icons 8</a> from{" "}
+            Illustration by <a href="undefined">Icons 8</a> from{' '}
             <a href="https://icons8.com/">Icons8</a>
           </p>
         </Grid>
