@@ -8,7 +8,7 @@ import Homepage from 'components/organisms/Homepage';
 import ResetPass from 'components/organisms/ResetPass';
 import Footer from 'components/molecules/Footer';
 import Authenticate from 'components/organisms/Authenticate'
-import Dashboard from "components/organisms/Dashboard";
+import Dashboard from 'components/organisms/Dashboard';
 
 // context
 import { UserContext } from 'contexts/userContext';
@@ -35,7 +35,6 @@ const App = () => {
 
   return (
     <Router>
-      {/* <p>use: {user && user.email }</p> */}
       <UserContext.Provider value={{ providedUser }}>
         <Navbar />
         <div style={{ minHeight: '80vh' }}>
