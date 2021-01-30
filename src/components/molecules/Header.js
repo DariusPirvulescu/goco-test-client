@@ -1,46 +1,46 @@
-import React from "react";
+import React from 'react';
 
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
-import headerImg from "assets/images/main.png";
-import ActionButton from "components/atoms/ActionButton";
+import headerImg from 'assets/images/main.png';
+import ActionButton from 'components/atoms/ActionButton';
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    width: "100vw",
+    width: '100vw',
     paddingBottom: 50,
   },
   gridContainer: {
-    flexDirection: "column-reverse",
-    [theme.breakpoints.up("sm")]: {
-      height: "70vh",
-      flexDirection: "row",
+    flexDirection: 'column-reverse',
+    [theme.breakpoints.up('sm')]: {
+      height: '70vh',
+      flexDirection: 'row',
     },
-    [theme.breakpoints.up("md")]: {
-      height: "80vh",
+    [theme.breakpoints.up('md')]: {
+      height: '80vh',
     },
   },
   vector: {
-    width: "50%",
-    margin: "auto",
-    display: "block",
-    [theme.breakpoints.up("sm")]: {
-      width: "65%",
+    width: '50%',
+    margin: 'auto',
+    display: 'block',
+    [theme.breakpoints.up('sm')]: {
+      width: '65%',
       marginTop: 30,
     },
   },
   titleContainer: {
     marginTop: 30,
-    padding: "0 24px",
-    textAlign: "center",
-    [theme.breakpoints.up("sm")]: {
-      marginTop: "15%",
-      textAlign: "left",
+    padding: '0 24px',
+    textAlign: 'center',
+    [theme.breakpoints.up('sm')]: {
+      marginTop: '15%',
+      textAlign: 'left',
     },
-    [theme.breakpoints.up("md")]: {
-      marginTop: "25%",
+    [theme.breakpoints.up('md')]: {
+      marginTop: '25%',
       paddingRight: 144,
     },
   },
@@ -52,7 +52,7 @@ const useStyle = makeStyles((theme) => ({
     marginTop: 30,
     width: 100,
     height: 45,
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up('md')]: {
       marginTop: 70,
       width: 150,
       height: 50,
@@ -76,7 +76,7 @@ const Header = () => {
               component="h3"
               color="textSecondary"
             >
-              Get tracking your progress with the this amazing SaaS platform
+              Start tracking your progress with this amazing SaaS platform
             </Typography>
             <ActionButton style={classes.cta} />
           </div>

@@ -1,0 +1,23 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
+  "plugins": ["import"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "quotes": [1, "single"],
+    "no-console": "warn",
+    "no-eval": "error",
+    "import/first": "error",
+    "react/prop-types": 0,
+    "comma-dangle": [2, "only-multiline"],
+    "import/default": 2
+  }
+}

@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 
-import { UserContext } from "contexts/userContext";
-import { usePostFetch } from "customHooks/usePostFetch";
+import { UserContext } from 'contexts/userContext';
+import { usePostFetch } from 'customHooks/usePostFetch';
 
-import Header from "components/molecules/Header";
-import About from "components/molecules/About";
-import Pricing from "components/molecules/Pricing";
+import Header from 'components/molecules/Header';
+import About from 'components/molecules/About';
+import Pricing from 'components/molecules/Pricing';
 
 const Homepage = () => {
   const { providedUser } = useContext(UserContext);
   const [res, sendRequest] = usePostFetch();
 
   const handleSignOut = () => {
-    sendRequest("/sign-out", {});
+    sendRequest('/sign-out', {});
     providedUser.setUser({});
     localStorage.clear();
     console.log(res);
