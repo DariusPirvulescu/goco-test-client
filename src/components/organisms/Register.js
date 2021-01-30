@@ -10,34 +10,33 @@ import {
 } from "@material-ui/core";
 
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 import { UserContext } from "contexts/userContext";
 import { usePostFetch } from "customHooks/usePostFetch";
 
 const useStyles = makeStyles({
   authCard: {
-    width: '50%',
-    margin: 'auto'
-  }
-})
+    width: "50%",
+    margin: "auto",
+  },
+});
 
 const Register = () => {
   const classes = useStyles();
   const [inputValues, setInputValues] = useState({});
   const [error, setError] = useState("");
   const { providedUser } = useContext(UserContext);
-  const [res, sendRequest] = usePostFetch()
+  const [res, sendRequest] = usePostFetch();
 
   useEffect(() => {
     if (res.data) {
-      localStorage.setItem('user', JSON.stringify(res.data.snapshot))
-      providedUser.setUser(res.data.snapshot)
-      setInputValues({})
+      localStorage.setItem("user", JSON.stringify(res.data.snapshot));
+      providedUser.setUser(res.data.snapshot);
+      setInputValues({});
     }
+  }, [res.data, providedUser]);
 
-  }, [res.data, providedUser])
-  
   const handleChange = (event) => {
     let values = { ...inputValues };
     values[event.target.name] = event.target.value;
@@ -47,22 +46,20 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError("")
-    
+    setError("");
+
     if (inputValues.password !== inputValues.passwordConfirm) {
-      setError("Passwords don't match")
+      setError("Passwords don't match");
       return;
     }
-    
+
     const body = inputValues;
 
-    sendRequest("/register", body)
-
+    sendRequest("/register", body);
   };
 
   return (
     <div>
-
       <div className={classes.authCard}>
         <Avatar>
           <LockOutlinedIcon />
@@ -73,7 +70,7 @@ const Register = () => {
         <form onSubmit={handleSubmit}>
           <TextField
             onChange={handleChange}
-            value={inputValues.name || ''}
+            value={inputValues.name || ""}
             variant="outlined"
             margin="normal"
             required
@@ -86,7 +83,7 @@ const Register = () => {
           />
           <TextField
             onChange={handleChange}
-            value={inputValues.email || ''}
+            value={inputValues.email || ""}
             variant="outlined"
             margin="normal"
             required
@@ -99,7 +96,7 @@ const Register = () => {
           />
           <TextField
             onChange={handleChange}
-            value={inputValues.password || ''}
+            value={inputValues.password || ""}
             variant="outlined"
             margin="normal"
             required
@@ -112,7 +109,7 @@ const Register = () => {
           />
           <TextField
             onChange={handleChange}
-            value={inputValues.passwordConfirm || ''}
+            value={inputValues.passwordConfirm || ""}
             variant="outlined"
             margin="normal"
             required
@@ -129,14 +126,15 @@ const Register = () => {
           />
           <h3>{res.error}</h3>
           <h3>{error}</h3>
-          {res.loading ? "LOADING..." :
+          {res.loading ? (
+            "LOADING..."
+          ) : (
             <Button type="submit" fullWidth variant="contained" color="primary">
               Sign Up
             </Button>
-          }
+          )}
         </form>
       </div>
-     
     </div>
   );
 };
