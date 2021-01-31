@@ -22,7 +22,6 @@ export const usePostFetch = () => {
       fetch(url, requestOptions)
         .then(response => response.json())
         .then(data => {
-          console.log('DATA', data)
           if(data.type) {
             setResult({loading: false, data: data, error: null})
           } else {
