@@ -50,11 +50,7 @@ const Footer = () => {
               <ul>
                 {footer.description.map((item) => (
                   <li key={item}>
-                    <TextLink
-                      to="/#"
-                      variant="subtitle2"
-                      color="textSecondary"
-                    >
+                    <TextLink to="/#" variant="subtitle2" color="textSecondary">
                       {item}
                     </TextLink>
                   </li>
@@ -96,11 +92,7 @@ const Footer = () => {
           </p>
         </Grid>
 
-        <Grid
-          item
-          xs={12}
-          className={classes.logoContainer}
-        >
+        <Grid item xs={12} className={classes.logoContainer}>
           <img src={logo} alt="basket ball logo" className={classes.logo} />
         </Grid>
       </Grid>

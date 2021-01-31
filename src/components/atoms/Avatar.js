@@ -8,15 +8,14 @@ import { UserContext } from 'contexts/userContext';
 const useStyles = makeStyles((theme) => ({
   avatar: {
     margin: 'auto',
-    // backgroundColor: '#e86166',
     background: theme.palette.primary.main,
-    fontSize: '2em'
+    fontSize: '2em',
   },
   small: {
     width: theme.spacing(3),
     height: theme.spacing(3),
     fontSize: '1.4em',
-    padding: 8
+    padding: 8,
   },
   medium: {
     width: theme.spacing(7),
