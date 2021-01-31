@@ -15,7 +15,7 @@ const Homepage = () => {
     sendRequest('/sign-out', {});
     providedUser.setUser({});
     localStorage.clear();
-    console.log(res);
+    res
   };
 
   return (

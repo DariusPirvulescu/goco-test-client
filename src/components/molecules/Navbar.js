@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -9,11 +9,15 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
-import { HashLink as Link } from 'react-router-hash-link';
+import { useHistory } from 'react-router-dom';
 
 import BurgerMenu from 'components/atoms/BurgerMenu';
 import TemporaryDrawer from 'components/atoms/TemporaryDrawer';
 import TextLink from 'components/atoms/TextLink';
+import Avatar from 'components/atoms/Avatar';
+
+import { UserContext } from 'contexts/userContext';
+import { usePostFetch } from 'customHooks/usePostFetch';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -52,11 +56,20 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     gap: '20px',
   },
+  avatarContainer: {
+    '& a': {
+      margin: 'auto',
+    },
+  },
 }));
 
 const NavBar = () => {
   const classes = useStyles();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const history = useHistory();
+
+  const [res, sendRequest] = usePostFetch();
+  const { providedUser } = useContext(UserContext);
 
   const openDrawerHandler = () => {
     setIsDrawerOpen(true);
@@ -66,48 +79,71 @@ const NavBar = () => {
     setIsDrawerOpen(false);
   };
 
+  const handleLogOut = () => {
+    sendRequest('/sign-out', {});
+    providedUser.setUser(null);
+    localStorage.clear();
+    history.push('/');
+    res
+  };
+
   const list = (
     <div className={classes.list} onClick={closeDrawer}>
       <List>
+        {(providedUser.user && providedUser.user.name) && (
+          <ListItem className={classes.avatarContainer}>
+            <TextLink to="/dashboard">
+              <Avatar size="medium" />
+            </TextLink>
+          </ListItem>
+        )}
         <ListItem>
-          <Link to="/#about" style={{ textDecoration: 'none', color: '#000' }}>
+          <TextLink hash to="/#about">
             <ListItemText primary="About" />
-          </Link>
+          </TextLink>
         </ListItem>
 
         <ListItem>
-          <Link
-            to="/#pricing"
-            style={{ textDecoration: 'none', color: '#000' }}
-          >
+          <TextLink hash to="/#pricing">
             <ListItemText primary="Pricing" />
-          </Link>
+          </TextLink>
         </ListItem>
 
         <ListItem>
-          <Link
-            to="/#contact"
-            style={{ textDecoration: 'none', color: '#000' }}
-          >
+          <TextLink hash to="/#contact">
             <ListItemText primary="Contacts" />
-          </Link>
+          </TextLink>
         </ListItem>
       </List>
       <Divider />
       <List>
         <ListItem>
-          <TextLink to="/login">
-            <Button variant="contained" color="primary">
-              Log In
-            </Button>
-          </TextLink>
+          {(providedUser.user && providedUser.user.name) ? (
+            <TextLink to="/dashboard">
+              <Button variant="contained" color="primary">
+                Dashboard
+              </Button>
+            </TextLink>
+          ) : (
+            <TextLink to="/login">
+              <Button variant="contained" color="primary">
+                Log In
+              </Button>
+            </TextLink>
+          )}
         </ListItem>
         <ListItem>
-          <TextLink to="/register">
-            <Button variant="contained" color="primary">
-              Sign Up
+          {(providedUser.user && providedUser.user.name) ? (
+            <Button onClick={handleLogOut} variant="contained" color="primary">
+              Log Out
             </Button>
-          </TextLink>
+          ) : (
+            <TextLink to="/register">
+              <Button variant="contained" color="primary">
+                Sign Up
+              </Button>
+            </TextLink>
+          )}
         </ListItem>
       </List>
     </div>
@@ -124,32 +160,41 @@ const NavBar = () => {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <div className={classes.navLinks}>
-              <Link
+              <TextLink
+                hash
                 to="/#about"
                 style={{ textDecoration: 'none', color: '#000' }}
               >
                 About
-              </Link>
+              </TextLink>
 
-              <Link
+              <TextLink
+                hash
                 to="/#pricing"
                 style={{ textDecoration: 'none', color: '#000' }}
               >
                 Pricing
-              </Link>
+              </TextLink>
 
-              <Link
+              <TextLink
+                hash
                 to="/#contact"
                 style={{ textDecoration: 'none', color: '#000' }}
               >
                 Contacts
-              </Link>
-
-              <TextLink to="/register">
-                <Button variant="outlined" color="primary">
-                  Sign Up
-                </Button>
               </TextLink>
+
+              {(providedUser.user && providedUser.user.name) ? (
+                <TextLink to="/dashboard">
+                  <Avatar size="small" />
+                </TextLink>
+              ) : (
+                <TextLink to="/register">
+                  <Button variant="outlined" color="primary">
+                    Sign Up
+                  </Button>
+                </TextLink>
+              )}
             </div>
           </div>
           <div className={classes.sectionMobile}>

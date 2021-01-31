@@ -51,8 +51,8 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (res.data) {
-      localStorage.setItem('user', JSON.stringify(res.data.snapshot));
       providedUser.setUser(res.data.snapshot);
+      localStorage.setItem('user', JSON.stringify(res.data.snapshot));
       history.push('/dashboard')
     }
   }, [res.data, providedUser]);

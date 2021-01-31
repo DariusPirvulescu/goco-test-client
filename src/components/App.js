@@ -17,6 +17,7 @@ const App = () => {
   const [user, setUser] = useState({});
 
   const providedUser = useMemo(() => ({ user, setUser }), [user, setUser]);
+  // const providedUser = { user, setUser }
 
   useEffect(() => {
     const userLoggedIn = localStorage.getItem('user');

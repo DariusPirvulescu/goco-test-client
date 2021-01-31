@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
   small: {
     width: theme.spacing(3),
     height: theme.spacing(3),
+    fontSize: '1.4em',
+    padding: 8
   },
   medium: {
     width: theme.spacing(7),
@@ -25,12 +27,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UserAvatar = ({ imgSrc, variant, size, children }) => {
+const UserAvatar = ({ variant, size }) => {
   const classes = useStyles();
   const { providedUser } = useContext(UserContext);
 
   const renderContent = () => {
-    if (providedUser.user.name) {
+    if (providedUser.user && providedUser.user.name) {
       const userName = providedUser.user.name;
       return userName[0].toUpperCase();
     }
@@ -40,7 +42,6 @@ const UserAvatar = ({ imgSrc, variant, size, children }) => {
   return (
     <Avatar
       alt="user's avatar"
-      src={imgSrc}
       variant={variant}
       className={`${classes[size]} ${classes.avatar}`}
     >
