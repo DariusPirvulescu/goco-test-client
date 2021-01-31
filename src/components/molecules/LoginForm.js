@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Avatar, Typography, Button, Grid } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import TextInput from 'components/atoms/TextInput';
 import LoadSpinner from 'components/atoms/LoadSpinner';
@@ -37,10 +37,10 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginForm = () => {
   const classes = useStyles();
-
+  const history = useHistory()
   const [inputValues, setInputValues] = useState({});
+  
   const { providedUser } = useContext(UserContext);
-
   const [res, sendRequest] = usePostFetch();
 
   const handleChange = (event) => {
@@ -51,8 +51,9 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (res.data) {
-      localStorage.setItem('user', JSON.stringify(res.data.snapshot));
       providedUser.setUser(res.data.snapshot);
+      localStorage.setItem('user', JSON.stringify(res.data.snapshot));
+      history.push('/dashboard')
     }
   }, [res.data, providedUser]);
 

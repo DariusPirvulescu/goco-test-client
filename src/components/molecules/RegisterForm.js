@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Alert from '@material-ui/lab/Alert'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import LoadSpinner from 'components/atoms/LoadSpinner';
 import TextInput from 'components/atoms/TextInput';
@@ -45,6 +45,8 @@ const RegisterForm = () => {
   const classes = useStyles();
   const [inputValues, setInputValues] = useState({});
   const [error, setError] = useState('');
+  const history = useHistory()
+
   const { providedUser } = useContext(UserContext);
   const [res, sendRequest] = usePostFetch();
 
@@ -53,6 +55,7 @@ const RegisterForm = () => {
       localStorage.setItem('user', JSON.stringify(res.data.snapshot));
       providedUser.setUser(res.data.snapshot);
       setInputValues({});
+      history.push('/dashboard')
     }
   }, [res.data, providedUser]);
 
@@ -128,7 +131,7 @@ const RegisterForm = () => {
           />
           {res.error && 
             <Alert severity="error">
-              {res.error.message}
+              {res.error}
             </Alert>
           }
           {error && 

@@ -19,7 +19,7 @@ const useStyle = makeStyles(() => ({
   },
   root: {
     padding: 24,
-  },
+  }
 }));
 
 const Pricing = () => {
@@ -49,7 +49,7 @@ const Pricing = () => {
         illo inventore veritatis et quasi architecto beatae vitae dicta sunt
         explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.
       </Typography>
-      <Grid container spacing={5} alignItems="flex-end">
+      <Grid container alignItems="flex-end">
         {priceGroups.map((group) => (
           <Grid
             item
@@ -63,6 +63,7 @@ const Pricing = () => {
               subheader={group.subheader}
               buttonVariant={group.buttonVariant}
               link={group.link}
+              className={classes.card}
             >
               <CardBody title={group.price} subtitle="/mo">
                 {group.description.map((line) => (

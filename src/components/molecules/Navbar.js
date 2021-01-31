@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -9,11 +9,17 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
-import { HashLink as Link } from 'react-router-hash-link';
+import { useHistory } from 'react-router-dom';
 
 import BurgerMenu from 'components/atoms/BurgerMenu';
 import TemporaryDrawer from 'components/atoms/TemporaryDrawer';
 import TextLink from 'components/atoms/TextLink';
+import ButtonLink from 'components/atoms/ButtonLink';
+import UserAvatar from 'components/atoms/Avatar';
+import DropMenu from 'components/atoms/DropMenu';
+
+import { UserContext } from 'contexts/userContext';
+import { usePostFetch } from 'customHooks/usePostFetch';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -52,11 +58,29 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     gap: '20px',
   },
+  avatarContainer: {
+    '& a': {
+      margin: 'auto',
+    },
+  },
 }));
 
 const NavBar = () => {
   const classes = useStyles();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [menuAnchor, setMenuAnchor] = useState(null)
+
+  const history = useHistory();
+
+  /*eslint-disable no-unused-vars */
+  const [res, sendRequest] = usePostFetch();
+  /*eslint-eable no-unused-vars */
+
+  const { providedUser } = useContext(UserContext);
+
+  useEffect(() => {
+    setMenuAnchor(null)
+  }, [])
 
   const openDrawerHandler = () => {
     setIsDrawerOpen(true);
@@ -66,48 +90,72 @@ const NavBar = () => {
     setIsDrawerOpen(false);
   };
 
+  const handleMenuClose = () => {
+    setMenuAnchor(null)
+  }
+
+  const handleMenuOpen = (e) => {
+    setMenuAnchor(e.currentTarget)
+  }
+
+  const handleLogOut = () => {
+    sendRequest('/sign-out', {});
+    providedUser.setUser(null);
+    localStorage.clear();
+    history.push('/');
+  };
+
   const list = (
     <div className={classes.list} onClick={closeDrawer}>
       <List>
+        {providedUser.user && providedUser.user.name && (
+          <ListItem className={classes.avatarContainer}>
+            <TextLink to="/dashboard">
+              <UserAvatar size="medium" />
+            </TextLink>
+          </ListItem>
+        )}
         <ListItem>
-          <Link to="/#about" style={{ textDecoration: 'none', color: '#000' }}>
+          <TextLink hash to="/#about">
             <ListItemText primary="About" />
-          </Link>
+          </TextLink>
         </ListItem>
 
         <ListItem>
-          <Link
-            to="/#pricing"
-            style={{ textDecoration: 'none', color: '#000' }}
-          >
+          <TextLink hash to="/#pricing">
             <ListItemText primary="Pricing" />
-          </Link>
+          </TextLink>
         </ListItem>
 
         <ListItem>
-          <Link
-            to="/#contact"
-            style={{ textDecoration: 'none', color: '#000' }}
-          >
+          <TextLink hash to="/#contact">
             <ListItemText primary="Contacts" />
-          </Link>
+          </TextLink>
         </ListItem>
       </List>
       <Divider />
       <List>
         <ListItem>
-          <TextLink to="/login">
-            <Button variant="contained" color="primary">
+          {providedUser.user && providedUser.user.name ? (
+            <ButtonLink to="/dashboard" variant="contained" color="primary">
+              Dashboard
+            </ButtonLink>
+          ) : (
+            <ButtonLink to="/login" variant="contained" color="primary">
               Log In
-            </Button>
-          </TextLink>
+            </ButtonLink>
+          )}
         </ListItem>
         <ListItem>
-          <TextLink to="/register">
-            <Button variant="contained" color="primary">
-              Sign Up
+          {providedUser.user && providedUser.user.name ? (
+            <Button onClick={handleLogOut} variant="contained" color="primary">
+              Log Out
             </Button>
-          </TextLink>
+          ) : (
+            <ButtonLink to="/register" variant="contained" color="primary">
+              Sign Up
+            </ButtonLink>
+          )}
         </ListItem>
       </List>
     </div>
@@ -124,32 +172,40 @@ const NavBar = () => {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <div className={classes.navLinks}>
-              <Link
+              <TextLink
+                hash
                 to="/#about"
                 style={{ textDecoration: 'none', color: '#000' }}
               >
                 About
-              </Link>
+              </TextLink>
 
-              <Link
+              <TextLink
+                hash
                 to="/#pricing"
                 style={{ textDecoration: 'none', color: '#000' }}
               >
                 Pricing
-              </Link>
+              </TextLink>
 
-              <Link
+              <TextLink
+                hash
                 to="/#contact"
                 style={{ textDecoration: 'none', color: '#000' }}
               >
                 Contacts
-              </Link>
-
-              <TextLink to="/register">
-                <Button variant="outlined" color="primary">
-                  Sign Up
-                </Button>
               </TextLink>
+
+              {providedUser.user && providedUser.user.name ? (
+                <div>
+                  <UserAvatar size="small" onClick={handleMenuOpen} />
+                  <DropMenu onClose={handleMenuClose} anchorEl={menuAnchor} logoutHandler={handleLogOut} />
+                </div>
+              ) : (
+                <ButtonLink to="register" variant="contained" color="primary">
+                  Sign Up
+                </ButtonLink>
+              )}
             </div>
           </div>
           <div className={classes.sectionMobile}>
