@@ -10,6 +10,7 @@ const useStyle = makeStyles((theme) => ({
   root: {
     paddingBottom: 40,
     // background: '#f2f2f2'
+    minHeight: 660,
   },
   gridContainer: {
     flexDirection: 'column-reverse',
@@ -19,7 +20,6 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   imgAbout: {
-    // width: "80%",
     padding: '0 24px',
     margin: '20px auto',
     borderRadius: 10,
@@ -69,10 +69,11 @@ const About = () => {
               passage, and going through the cites of the word in classical
               literature, discovered the undoubtable source. Lorem Ipsum comes
               from sections 1.10.32 and 1.10.33 of `&quot;`de Finibus Bonorum et
-              Malorum`&quot;` (The Extremes of Good and Evil) by Cicero, written in 45
-              BC. This book is a treatise on the theory of ethics, very popular
-              during the Renaissance. The first line of Lorem Ipsum, `&quot;`Lorem
-              ipsum dolor sit amet..`&quot;`, comes from a line in section 1.10.32.
+              Malorum`&quot;` (The Extremes of Good and Evil) by Cicero, written
+              in 45 BC. This book is a treatise on the theory of ethics, very
+              popular during the Renaissance. The first line of Lorem Ipsum,
+              `&quot;`Lorem ipsum dolor sit amet..`&quot;`, comes from a line in
+              section 1.10.32.
             </Typography>
           </div>
         </Grid>

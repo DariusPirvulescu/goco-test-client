@@ -12,6 +12,6 @@ const NavTab = (props) => {
       {...props}
     />
   );
-}
+};
 
 export default NavTab;

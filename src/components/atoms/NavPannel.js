@@ -3,7 +3,6 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-
 const NavPannel = ({ children, value, index, ...other }) => {
   return (
     <div
@@ -20,6 +19,6 @@ const NavPannel = ({ children, value, index, ...other }) => {
       )}
     </div>
   );
-}
+};
 
 export default NavPannel;

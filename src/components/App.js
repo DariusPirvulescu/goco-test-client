@@ -1,6 +1,9 @@
 import React, { useState, useMemo, useEffect } from 'react';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ThemeProvider } from '@material-ui/core/styles';
+
+import theme from 'theme/';
 
 import PrivateRoute from 'components/atoms/PrivateRoute';
 import Navbar from 'components/molecules/Navbar';
@@ -27,35 +30,36 @@ const App = () => {
         setUser(foundUser);
       } catch (err) {
         /* eslint-disable no-console */
-        console.log(err)
+        console.log(err);
         /* eslint-enable no-console */
-
       }
     }
   }, []);
 
   return (
     <Router>
-      <UserContext.Provider value={{ providedUser }}>
-        <Navbar />
-        <div style={{ minHeight: '80vh' }}>
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <PrivateRoute path="/dashboard" component={Dashboard} />
-            <Route
-              path="/login"
-              render={() => <Authenticate action="login" />}
-            />
-            <Route
-              path="/register"
-              render={() => <Authenticate action="register" />}
-            />
-            <Route path="/reset" component={ResetPass} />
-            <Route component={Homepage} />
-          </Switch>
-        </div>
-        <Footer />
-      </UserContext.Provider>
+      <ThemeProvider theme={theme}>
+        <UserContext.Provider value={{ providedUser }}>
+          <Navbar />
+          <div style={{ minHeight: '80vh' }}>
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <PrivateRoute path="/dashboard" component={Dashboard} />
+              <Route
+                path="/login"
+                render={() => <Authenticate action="login" />}
+              />
+              <Route
+                path="/register"
+                render={() => <Authenticate action="register" />}
+              />
+              <Route path="/reset" component={ResetPass} />
+              <Route component={Homepage} />
+            </Switch>
+          </div>
+          <Footer />
+        </UserContext.Provider>
+      </ThemeProvider>
     </Router>
   );
 };
