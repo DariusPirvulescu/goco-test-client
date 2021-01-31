@@ -12,7 +12,7 @@ import { UserContext } from 'contexts/userContext';
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    width: '100vw',
+    width: '97vw',
     paddingBottom: 50,
   },
   gridContainer: {

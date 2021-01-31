@@ -25,7 +25,12 @@ const App = () => {
       try {
         const foundUser = JSON.parse(userLoggedIn);
         setUser(foundUser);
-      } catch (err) {}
+      } catch (err) {
+        /* eslint-disable no-console */
+        console.log(err)
+        /* eslint-enable no-console */
+
+      }
     }
   }, []);
 

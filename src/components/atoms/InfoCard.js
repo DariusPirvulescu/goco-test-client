@@ -13,6 +13,10 @@ const useStyle = makeStyles((theme) => ({
         ? theme.palette.grey[200]
         : theme.palette.grey[700],
   },
+  cardRoot: {
+    margin: '15px auto',
+    width: '95%'
+  }
 }));
 
 const InfoCard = ({ children, header, subheader, buttonVariant, link }) => {
@@ -24,7 +28,7 @@ const InfoCard = ({ children, header, subheader, buttonVariant, link }) => {
   }
 
   return (
-    <Card>
+    <Card className={classes.cardRoot}>
       <CardHeader
         title={header}
         subheader={subheader}
