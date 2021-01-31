@@ -51,7 +51,7 @@ const Footer = () => {
                 {footer.description.map((item) => (
                   <li key={item}>
                     <TextLink
-                      href="#"
+                      to="/#"
                       variant="subtitle2"
                       color="textSecondary"
                     >
@@ -70,7 +70,7 @@ const Footer = () => {
 
           <Typography>01234 567890</Typography>
           <Typography>
-            <TextLink href="/#">Contact us</TextLink>
+            <TextLink to="/#">Contact us</TextLink>
           </Typography>
           <Typography>Street, City, County, Country</Typography>
         </Grid>
@@ -100,7 +100,6 @@ const Footer = () => {
           item
           xs={12}
           className={classes.logoContainer}
-          alignItems="center"
         >
           <img src={logo} alt="basket ball logo" className={classes.logo} />
         </Grid>

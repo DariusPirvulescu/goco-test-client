@@ -36,7 +36,7 @@ function Dashboard() {
   const { providedUser } = useContext(UserContext);
 
   return (
-    <Grid container spacing='1' className={classes.dashboardContainer} justify='center' alignItems='center'>
+    <Grid container spacing={1} className={classes.dashboardContainer} justify='center' alignItems='center'>
       <Grid item xs={12} className={classes.dashboardHeader}>
         <Avatar size='large'/>
         <Typography variant="h5">
