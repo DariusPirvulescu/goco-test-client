@@ -10,6 +10,7 @@ const useStyle = makeStyles((theme) => ({
   root: {
     paddingBottom: 40,
     // background: '#f2f2f2'
+    minHeight: 660
   },
   gridContainer: {
     flexDirection: 'column-reverse',

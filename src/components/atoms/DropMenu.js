@@ -2,7 +2,7 @@ import React from 'react';
 
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 const DropMenu = ({onClose, anchorEl, logoutHandler }) => {
   const history = useHistory()
