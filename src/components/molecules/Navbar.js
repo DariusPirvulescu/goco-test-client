@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -15,7 +15,8 @@ import BurgerMenu from 'components/atoms/BurgerMenu';
 import TemporaryDrawer from 'components/atoms/TemporaryDrawer';
 import TextLink from 'components/atoms/TextLink';
 import ButtonLink from 'components/atoms/ButtonLink';
-import Avatar from 'components/atoms/Avatar';
+import UserAvatar from 'components/atoms/Avatar';
+import DropMenu from 'components/atoms/DropMenu';
 
 import { UserContext } from 'contexts/userContext';
 import { usePostFetch } from 'customHooks/usePostFetch';
@@ -67,10 +68,19 @@ const useStyles = makeStyles((theme) => ({
 const NavBar = () => {
   const classes = useStyles();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [menuAnchor, setMenuAnchor] = useState(null)
+
   const history = useHistory();
 
+  /*eslint-disable no-unused-vars */
   const [res, sendRequest] = usePostFetch();
+  /*eslint-eable no-unused-vars */
+
   const { providedUser } = useContext(UserContext);
+
+  useEffect(() => {
+    setMenuAnchor(null)
+  }, [])
 
   const openDrawerHandler = () => {
     setIsDrawerOpen(true);
@@ -80,12 +90,19 @@ const NavBar = () => {
     setIsDrawerOpen(false);
   };
 
+  const handleMenuClose = () => {
+    setMenuAnchor(null)
+  }
+
+  const handleMenuOpen = (e) => {
+    setMenuAnchor(e.currentTarget)
+  }
+
   const handleLogOut = () => {
     sendRequest('/sign-out', {});
     providedUser.setUser(null);
     localStorage.clear();
     history.push('/');
-    res;
   };
 
   const list = (
@@ -94,7 +111,7 @@ const NavBar = () => {
         {providedUser.user && providedUser.user.name && (
           <ListItem className={classes.avatarContainer}>
             <TextLink to="/dashboard">
-              <Avatar size="medium" />
+              <UserAvatar size="medium" />
             </TextLink>
           </ListItem>
         )}
@@ -180,9 +197,10 @@ const NavBar = () => {
               </TextLink>
 
               {providedUser.user && providedUser.user.name ? (
-                <TextLink to="/dashboard">
-                  <Avatar size="small" />
-                </TextLink>
+                <div>
+                  <UserAvatar size="small" onClick={handleMenuOpen} />
+                  <DropMenu onClose={handleMenuClose} anchorEl={menuAnchor} logoutHandler={handleLogOut} />
+                </div>
               ) : (
                 <ButtonLink to="register" variant="contained" color="primary">
                   Sign Up

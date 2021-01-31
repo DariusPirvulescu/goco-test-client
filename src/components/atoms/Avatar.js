@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UserAvatar = ({ variant, size }) => {
+const UserAvatar = ({ variant, size, ...rest }) => {
   const classes = useStyles();
   const { providedUser } = useContext(UserContext);
 
@@ -41,6 +41,7 @@ const UserAvatar = ({ variant, size }) => {
 
   return (
     <Avatar
+      {...rest}
       alt="user's avatar"
       variant={variant}
       className={`${classes[size]} ${classes.avatar}`}
