@@ -2,10 +2,7 @@ import React from 'react';
 
 import { Route, Redirect } from 'react-router-dom';
 
-// import { UserContext } from 'contexts/userContext';
-
 function PrivateRoute({ component: Component, ...rest }) {
-  // const { providedUser } = useContext(UserContext);
 
   return (
     <Route 
