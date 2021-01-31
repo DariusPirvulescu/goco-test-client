@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -6,6 +6,9 @@ import Typography from '@material-ui/core/Typography';
 
 import headerImg from 'assets/images/main.png';
 import ActionButton from 'components/atoms/ActionButton';
+import ButtonLink from 'components/atoms/ButtonLink';
+
+import { UserContext } from 'contexts/userContext';
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -62,6 +65,9 @@ const useStyle = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyle();
+
+  const { providedUser } = useContext(UserContext);
+
   return (
     <div className={classes.root}>
       <Grid container className={classes.gridContainer}>
@@ -78,7 +84,13 @@ const Header = () => {
             >
               Start tracking your progress with this amazing SaaS platform
             </Typography>
-            <ActionButton style={classes.cta} />
+            {providedUser.user && providedUser.user.name ? (
+              <ButtonLink to="/dashboard" variant="contained" color="primary" style={classes.cta}>
+                Dashboard
+              </ButtonLink>
+            ) : (
+              <ActionButton style={classes.cta} />
+            )}
           </div>
         </Grid>
         <Grid item xs={12} sm={6}>

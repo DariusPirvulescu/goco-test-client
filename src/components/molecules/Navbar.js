@@ -14,6 +14,7 @@ import { useHistory } from 'react-router-dom';
 import BurgerMenu from 'components/atoms/BurgerMenu';
 import TemporaryDrawer from 'components/atoms/TemporaryDrawer';
 import TextLink from 'components/atoms/TextLink';
+import ButtonLink from 'components/atoms/ButtonLink';
 import Avatar from 'components/atoms/Avatar';
 
 import { UserContext } from 'contexts/userContext';
@@ -84,13 +85,13 @@ const NavBar = () => {
     providedUser.setUser(null);
     localStorage.clear();
     history.push('/');
-    res
+    res;
   };
 
   const list = (
     <div className={classes.list} onClick={closeDrawer}>
       <List>
-        {(providedUser.user && providedUser.user.name) && (
+        {providedUser.user && providedUser.user.name && (
           <ListItem className={classes.avatarContainer}>
             <TextLink to="/dashboard">
               <Avatar size="medium" />
@@ -118,31 +119,25 @@ const NavBar = () => {
       <Divider />
       <List>
         <ListItem>
-          {(providedUser.user && providedUser.user.name) ? (
-            <TextLink to="/dashboard">
-              <Button variant="contained" color="primary">
-                Dashboard
-              </Button>
-            </TextLink>
+          {providedUser.user && providedUser.user.name ? (
+            <ButtonLink to="/dashboard" variant="contained" color="primary">
+              Dashboard
+            </ButtonLink>
           ) : (
-            <TextLink to="/login">
-              <Button variant="contained" color="primary">
-                Log In
-              </Button>
-            </TextLink>
+            <ButtonLink to="/login" variant="contained" color="primary">
+              Log In
+            </ButtonLink>
           )}
         </ListItem>
         <ListItem>
-          {(providedUser.user && providedUser.user.name) ? (
+          {providedUser.user && providedUser.user.name ? (
             <Button onClick={handleLogOut} variant="contained" color="primary">
               Log Out
             </Button>
           ) : (
-            <TextLink to="/register">
-              <Button variant="contained" color="primary">
-                Sign Up
-              </Button>
-            </TextLink>
+            <ButtonLink to="/register" variant="contained" color="primary">
+              Sign Up
+            </ButtonLink>
           )}
         </ListItem>
       </List>
@@ -184,16 +179,14 @@ const NavBar = () => {
                 Contacts
               </TextLink>
 
-              {(providedUser.user && providedUser.user.name) ? (
+              {providedUser.user && providedUser.user.name ? (
                 <TextLink to="/dashboard">
                   <Avatar size="small" />
                 </TextLink>
               ) : (
-                <TextLink to="/register">
-                  <Button variant="outlined" color="primary">
-                    Sign Up
-                  </Button>
-                </TextLink>
+                <ButtonLink to="register" variant="contained" color="primary">
+                  Sign Up
+                </ButtonLink>
               )}
             </div>
           </div>
