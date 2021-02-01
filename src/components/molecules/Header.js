@@ -80,8 +80,7 @@ const Header = () => {
               className={classes.subtitle}
               variant="subtitle1"
               component="h3"
-              color="textSecondary"
-            >
+              color="textSecondary" >
               Start tracking your progress with this amazing SaaS platform
             </Typography>
             {providedUser.user && providedUser.user.name ? (

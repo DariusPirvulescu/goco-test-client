@@ -53,12 +53,13 @@ const About = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <div className={classes.titleContainer}>
-            <Typography className={classes.title} variant="h3" component="h2">
+            <Typography className={classes.title} variant="h4" component="h2">
               About Us
             </Typography>
             <Typography
               className={classes.subtitle}
               variant="subtitle1"
+              color="textSecondary"
               component="p"
             >
               Contrary to popular belief, Lorem Ipsum is not simply random text.
@@ -68,11 +69,11 @@ const About = () => {
               the more obscure Latin words, consectetur, from a Lorem Ipsum
               passage, and going through the cites of the word in classical
               literature, discovered the undoubtable source. Lorem Ipsum comes
-              from sections 1.10.32 and 1.10.33 of `&quot;`de Finibus Bonorum et
-              Malorum`&quot;` (The Extremes of Good and Evil) by Cicero, written
+              from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et
+              Malorum &quot; (The Extremes of Good and Evil) by Cicero, written
               in 45 BC. This book is a treatise on the theory of ethics, very
               popular during the Renaissance. The first line of Lorem Ipsum,
-              `&quot;`Lorem ipsum dolor sit amet..`&quot;`, comes from a line in
+              &quot;Lorem ipsum dolor sit amet..&quot;, comes from a line in
               section 1.10.32.
             </Typography>
           </div>

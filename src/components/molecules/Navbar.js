@@ -24,16 +24,11 @@ import { usePostFetch } from 'customHooks/usePostFetch';
 const useStyles = makeStyles((theme) => ({
   appBar: {
     boxShadow: 'none',
+    marginBottom: 20,
   },
   grow: {
     flexGrow: 1,
   },
-  // title: {
-  //   display: "none",
-  //   [theme.breakpoints.up("sm")]: {
-  //     display: "block"
-  //   }
-  // },
   sectionDesktop: {
     display: 'none',
     [theme.breakpoints.up('md')]: {
@@ -49,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
   list: {
     width: 250,
     marginTop: 30,
+  },
+  listText: {
+    fontSize: theme.typography.subtitle2.fontSize,
   },
   fullList: {
     width: 'auto',
@@ -68,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
 const NavBar = () => {
   const classes = useStyles();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [menuAnchor, setMenuAnchor] = useState(null)
+  const [menuAnchor, setMenuAnchor] = useState(null);
 
   const history = useHistory();
 
@@ -79,8 +77,8 @@ const NavBar = () => {
   const { providedUser } = useContext(UserContext);
 
   useEffect(() => {
-    setMenuAnchor(null)
-  }, [])
+    setMenuAnchor(null);
+  }, []);
 
   const openDrawerHandler = () => {
     setIsDrawerOpen(true);
@@ -91,12 +89,12 @@ const NavBar = () => {
   };
 
   const handleMenuClose = () => {
-    setMenuAnchor(null)
-  }
+    setMenuAnchor(null);
+  };
 
   const handleMenuOpen = (e) => {
-    setMenuAnchor(e.currentTarget)
-  }
+    setMenuAnchor(e.currentTarget);
+  };
 
   const handleLogOut = () => {
     sendRequest('/sign-out', {});
@@ -115,21 +113,22 @@ const NavBar = () => {
             </TextLink>
           </ListItem>
         )}
+
         <ListItem>
           <TextLink hash to="/#about">
-            <ListItemText primary="About" />
+            <ListItemText primary={<Typography variant="subtitle1">About</Typography>} />
           </TextLink>
         </ListItem>
 
         <ListItem>
           <TextLink hash to="/#pricing">
-            <ListItemText primary="Pricing" />
+            <ListItemText primary={<Typography variant="subtitle1">Pricing</Typography>} />
           </TextLink>
         </ListItem>
 
         <ListItem>
           <TextLink hash to="/#contact">
-            <ListItemText primary="Contacts" />
+            <ListItemText primary={<Typography variant="subtitle1">Contacts</Typography>} />
           </TextLink>
         </ListItem>
       </List>
@@ -165,41 +164,39 @@ const NavBar = () => {
     <div className={classes.grow}>
       <AppBar color="inherit" className={classes.appBar} position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h4" noWrap>
-            <TextLink to="/">Baller</TextLink>
-          </Typography>
-
+          <TextLink to="/" variant="h3" >Baller</TextLink>          
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <div className={classes.navLinks}>
               <TextLink
                 hash
                 to="/#about"
-                style={{ textDecoration: 'none', color: '#000' }}
-              >
+                variant='subtitle2' >
                 About
               </TextLink>
 
               <TextLink
                 hash
-                to="/#pricing"
-                style={{ textDecoration: 'none', color: '#000' }}
-              >
+                to="/#pricing" 
+                variant='subtitle2' >
                 Pricing
               </TextLink>
 
               <TextLink
                 hash
                 to="/#contact"
-                style={{ textDecoration: 'none', color: '#000' }}
-              >
-                Contacts
+                variant='subtitle2' >
+                Contact
               </TextLink>
 
               {providedUser.user && providedUser.user.name ? (
                 <div>
                   <UserAvatar size="small" onClick={handleMenuOpen} />
-                  <DropMenu onClose={handleMenuClose} anchorEl={menuAnchor} logoutHandler={handleLogOut} />
+                  <DropMenu
+                    onClose={handleMenuClose}
+                    anchorEl={menuAnchor}
+                    logoutHandler={handleLogOut}
+                  />
                 </div>
               ) : (
                 <ButtonLink to="register" variant="contained" color="primary">

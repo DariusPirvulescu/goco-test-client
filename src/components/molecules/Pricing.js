@@ -37,7 +37,7 @@ const Pricing = () => {
         Pricing
       </Typography>
       <Typography
-        variant="h6"
+        variant="subtitle1"
         align="center"
         color="textSecondary"
         component="p"
@@ -69,7 +69,7 @@ const Pricing = () => {
                 {group.description.map((line) => (
                   <Typography
                     component="li"
-                    variant="subtitle1"
+                    variant="subtitle2"
                     align="center"
                     key={line}
                   >
