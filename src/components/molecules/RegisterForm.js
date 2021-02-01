@@ -148,9 +148,7 @@ const RegisterForm = () => {
           )}
           <Grid container>
             <Grid item>
-              <span>Already have an account?</span>
-              {' '}
-              <Link to="/login">{'Log In'}</Link>
+              <Typography>Already have an account?</Typography> <Link to="/login">{'Log In'}</Link>
             </Grid>
           </Grid>
         </form>

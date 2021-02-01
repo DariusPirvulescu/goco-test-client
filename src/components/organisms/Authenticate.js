@@ -8,7 +8,7 @@ import RegisterForm from 'components/molecules/RegisterForm';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '90vh',
+    minHeight: '90vh',
   },
 
   image: {

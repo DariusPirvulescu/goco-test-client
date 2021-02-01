@@ -113,7 +113,7 @@ const LoginForm = () => {
             <Link to="/reset">Forgot password ?</Link>
           </Grid>
           <Grid item>
-            <span>{'Don\'t have an account?'}</span>{' '}
+            <Typography>{'Don\'t have an account?'}</Typography>{' '}
             <Link to="/register">{'Sign Up'}</Link>
           </Grid>
         </Grid>
