@@ -14,11 +14,15 @@ const useStyle = makeStyles((theme) => ({
   root: {
     width: '97vw',
     paddingBottom: 50,
+    marginTop: 20,
+    [theme.breakpoints.up('sm')]: {
+      marginTop: 0
+    }
   },
   gridContainer: {
     flexDirection: 'column-reverse',
     [theme.breakpoints.up('sm')]: {
-      height: '70vh',
+      height: '50%',
       flexDirection: 'row',
     },
     [theme.breakpoints.up('md')]: {
