@@ -71,7 +71,7 @@ const ResetPasswordForm = () => {
         {res.error && <Alert severity="error">{res.error}</Alert>}
         <div className={classes.submit}>
           {res.loading ? (
-            <LoadSpinner />
+            <LoadSpinner alignCenter />
           ) : (
             <Button type="submit" fullWidth variant="contained" color="primary">
               Reset my password

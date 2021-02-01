@@ -64,32 +64,36 @@ const Footer = () => {
             Contact
           </Typography>
 
-          <Typography>01234 567890</Typography>
-          <Typography>
-            <TextLink to="/#">Contact us</TextLink>
+          <Typography variant="subtitle2" color="textSecondary">
+            01234 567890
           </Typography>
-          <Typography>Street, City, County, Country</Typography>
+          <TextLink to="/#" variant="subtitle2" color="textSecondary">
+          Contact us
+          </TextLink>
+          <Typography variant="subtitle2" color="textSecondary">
+            Street, City, County, Country
+          </Typography>
         </Grid>
 
         <Grid item xs={12}>
-          <p>
+          <Typography variant="subtitle2">
             Photo by{' '}
-            <a href="https://unsplash.com/@montylov?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+            <a style={{color: '#000'}} href="https://unsplash.com/@montylov?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
               MontyLov
             </a>{' '}
             on{' '}
-            <a href="https://unsplash.com/s/photos/basketball?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+            <a style={{color: '#000'}} href="https://unsplash.com/s/photos/basketball?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
               Unsplash
             </a>
-          </p>
-          <p>
-            Illustration by <a href="undefined">Maria Shukshina</a> from{' '}
-            <a href="https://icons8.com/">Icons8</a>
-          </p>
-          <p>
-            Illustration by <a href="undefined">Icons 8</a> from{' '}
-            <a href="https://icons8.com/">Icons8</a>
-          </p>
+          </Typography>
+          <Typography variant="subtitle2">
+            Illustration by <a style={{color: '#000'}} href="undefined">Maria Shukshina</a> from{' '}
+            <a style={{color: '#000'}} href="https://icons8.com/">Icons8</a>
+          </Typography>
+          <Typography variant="subtitle2">
+            Illustration by <a style={{color: '#000'}} href="undefined">Icons 8</a> from{' '}
+            <a style={{color: '#000'}} href="https://icons8.com/">Icons8</a>
+          </Typography>
         </Grid>
 
         <Grid item xs={12} className={classes.logoContainer}>
