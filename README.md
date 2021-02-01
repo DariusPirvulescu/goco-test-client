@@ -66,11 +66,9 @@ Clone this project on your local machine and run:
 ### `npm i`
 
 This will install the required packages. 
-After that is done, run the app in the development mode:
+After that is done, run the app in development mode:
 
 ### `npm run start`
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.\
 The page will reload if you make edits.
