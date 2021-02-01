@@ -24,7 +24,6 @@ import { usePostFetch } from 'customHooks/usePostFetch';
 const useStyles = makeStyles((theme) => ({
   appBar: {
     boxShadow: 'none',
-    marginBottom: 20,
   },
   grow: {
     flexGrow: 1,

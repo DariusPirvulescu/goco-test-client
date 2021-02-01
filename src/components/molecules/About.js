@@ -9,8 +9,10 @@ import aboutImg from 'assets/images/about.jpg';
 const useStyle = makeStyles((theme) => ({
   root: {
     paddingBottom: 40,
-    // background: '#f2f2f2'
     minHeight: 660,
+    [theme.breakpoints.up('sm')]: {
+      marginTop: 100,
+    }
   },
   gridContainer: {
     flexDirection: 'column-reverse',
