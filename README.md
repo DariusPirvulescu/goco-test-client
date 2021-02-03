@@ -1,7 +1,8 @@
 # Goco Test - client
 This is my attempt at resolving the Goco's React Test. The main objective of this test was to create and implement the design for login and registering users by utilizing React with some cloud service or serverless framework.
 
-The project currently hosted on the vercel platform, live demo here:
+This project is currently hosted on the vercel platform,\
+**Live demo** here:
 
 https://baller-client.vercel.app/
 
