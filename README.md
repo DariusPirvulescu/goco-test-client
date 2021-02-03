@@ -1,7 +1,7 @@
 # Goco Test - client
 This is my attempt at resolving the Goco's React Test. The main objective of this test was to create and implement the design for login and registering users by utilizing React with some cloud service or serverless framework.
 
-The project currently hosted on the vercel platform under, live demo here:
+The project currently hosted on the vercel platform, live demo here:
 
 https://baller-client.vercel.app/
 
@@ -18,7 +18,8 @@ For building this, I used the [Firebase](https://firebase.google.com/) platform 
 - [Firebase Authentication](https://firebase.google.com/docs/auth)
 - [Firebase Realtime Database](https://firebase.google.com/docs/database)
 
-Both mixed on a Node/Express app. More on this can be found at the [Goco-test API repo](https://github.com/DariusPirvulescu/goco-test-api).
+Mixed on a **Node/Express app**, also now having a branch with **serverless functions deployed on Vercel**.\
+More on this can be found at the [Goco-test API repo](https://github.com/DariusPirvulescu/goco-test-api).
 
 ### Frontend
 The frontend is using React and was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). \
